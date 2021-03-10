@@ -1,0 +1,7 @@
+flask
+Flask-WTF
+WTForms
+flask_sqlalchemy
+flask_mail
+pymysql
+paho-mqtt
