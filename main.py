@@ -8,3 +8,6 @@ app = Flask(__name__)
 from app.TestApp import test
 app.register_blueprint(test, url_prefix="/")
 
+from app.VeridenKey import vk
+app.register_blueprint(vk, url_prefix="/veriden-key/api/v1")
+
