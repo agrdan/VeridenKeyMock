@@ -316,7 +316,7 @@ class VeridenKey:
         return jsonify(resp)
 
     @staticmethod
-    @vk.route("/contact/", methods=['POST, GET'])
+    @vk.route("/contact/", methods=['POST', 'GET'])
     def hashtag():
         profileJane = {
             'id': 'asd234asd24a3sd2a43sd2',
