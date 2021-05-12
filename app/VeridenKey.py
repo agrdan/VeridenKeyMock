@@ -25,9 +25,17 @@ class VeridenKey:
     @staticmethod
     @vk.route("/me/", methods=['GET'])
     def me():
+        email1 = {
+            'email': 'test@test.hr',
+            'permission': 1
+        }
+        email2 = {
+            'email': 'user@decode.agency',
+            'permission': 1
+        }
         emailList = []
-        emailList.append("test@test.hr")
-        emailList.append("user@decode.agency")
+        emailList.append(email1)
+        emailList.append(email2)
         phoneList = []
         phone = {
             'permission': 1,
