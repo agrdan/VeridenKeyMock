@@ -399,3 +399,35 @@ class VeridenKey:
             'access_token': 'fasd8f97as9df87asd9f8a7sdf8!'
         }
         return jsonify(resp)
+
+    @staticmethod
+    @vk.route("/suggestions/", methods=['GET'])
+    def contactReqAction():
+        limit = request.args.get('limit')
+        profileList = []
+        profile = {
+            'id': 'asd234asd24a3sd2a43sd2',
+            'name': 'Jane Doe',
+            'handle': 'handle-12381927319asdf67asd5f',
+            'occupation': 'unknown',
+            'country': 'Croatia',
+            'qr_code': 'qr_code B46',
+            'avatar_small_url': 'https://davismarketingcompany.com/wp-content/uploads/2016/01/avatar_placeholder_small.png',
+            'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
+            'address': 'Radnicka cesta 47, Zagreb',
+            'last_updated': str(dt.now()),
+            'request_sent': True,
+            'request_received': True,
+            'request_received_id': 'asd87a6sd876asd',
+            'request_sent_id': '6da78s6d8a7s6d'
+        }
+
+        profileList.append(profile)
+
+        resp = {
+            'count': 1,
+            'next': 'next',
+            'previous': 'previous',
+            'result': profileList
+        }
+        return jsonify(resp)
