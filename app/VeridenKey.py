@@ -329,61 +329,91 @@ class VeridenKey:
     @staticmethod
     @vk.route("/contact/", methods=['POST', 'GET'])
     def hashtag():
+        email1 = {
+            'email': 'test@test.hr',
+            'permission': 1
+        }
+        email2 = {
+            'email': 'user@decode.agency',
+            'permission': 1
+        }
+        emailList = []
+        emailList.append(email1)
+        emailList.append(email2)
+        phoneList = []
+        phone = {
+            'permission': 1,
+            'phone': '+385991234567'
+        }
+        phoneList.append(phone)
+
+        social1 = {
+            'app_id': 'asd123asd123',
+            'handle': 'handle1',
+            'permissions': [
+                1,
+                2,
+                3
+            ]
+        }
+
+        social2 = {
+            'app_id': 'asd321as321',
+            'handle': 'handle2',
+            'permissions': [
+                1,
+                2
+            ]
+        }
+        socialList = []
+        socialList.append(social1)
+        socialList.append(social2)
+        hashtagList = []
+        hashtagList.append("#krivi")
+        hashtagList.append("#model")
+        hashtagList.append("#:P")
         profileJane = {
-            'id': 'asd234asd24a3sd2a43sd2',
+            'contact_id': 'asd234asd24a3sd2a43sd2',
+            'user_id': 'asd908as09d8as0f7d8g7',
             'name': 'Jane Doe',
             'handle': 'handle-12381927319asdf67asd5f',
             'occupation': 'unknown',
             'country': 'Croatia',
+            'address': 'Radnicka cesta 47, Zagreb',
             'qr_code': 'qr_code B46',
             'avatar_small_url': 'https://davismarketingcompany.com/wp-content/uploads/2016/01/avatar_placeholder_small.png',
             'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
-            'address': 'Radnicka cesta 47, Zagreb',
-            'last_updated': str(dt.now()),
-            'request_sent': True,
-            'request_received': True,
-            'request_received_id': 'asd87a6sd876asd',
-            'request_sent_id': '6da78s6d8a7s6d'
+            'permission_sent': 1,
+            'emails': emailList,
+            'phones': phoneList,
+            'messaging_phones': phoneList,
+            'hashtags': hashtagList,
+            'socials': socialList
         }
 
         profileJoe = {
-            'id': 'erty234asd24a3sd2a43sd2',
+            'contact_id': '123234asd24a3sd2a43sd2',
+            'user_id': '123908as09d8as0f7d8g7',
             'name': 'Joe Doe',
-            'handle': 'handle-qwerty1927319asdf67asd5f',
-            'occupation': 'dev',
+            'handle': 'handle-asdf27319asdf67asd5f',
+            'occupation': 'unknown',
             'country': 'Croatia',
+            'address': 'Radnicka cesta 47, Zagreb',
             'qr_code': 'qr_code B46',
             'avatar_small_url': 'https://davismarketingcompany.com/wp-content/uploads/2016/01/avatar_placeholder_small.png',
             'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
-            'address': 'Radnicka cesta 20, Zagreb',
-            'last_updated': str(dt.now()),
-            'request_sent': True,
-            'request_received': True,
-            'request_received_id': 'qwert3a6sd876asd',
-            'request_sent_id': 'qwert3s6d8a7s6d'
-        }
-
-        profileTesto = {
-            'id': 'test234asd24a3sd2a43sd2',
-            'name': 'Testo Testic',
-            'handle': 'handle-test1927319asdf67asd5f',
-            'occupation': 'tester',
-            'country': 'Croatia',
-            'qr_code': 'qr_code B46',
-            'avatar_small_url': 'https://davismarketingcompany.com/wp-content/uploads/2016/01/avatar_placeholder_small.png',
-            'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
-            'address': 'Radnicka cesta 20, Zagreb',
-            'last_updated': str(dt.now()),
-            'request_sent': True,
-            'request_received': True,
-            'request_received_id': 'test3a6sd876asd',
-            'request_sent_id': 'test3s6d8a7s6d'
+            'permission_sent': 1,
+            'emails': emailList,
+            'phones': phoneList,
+            'messaging_phones': phoneList,
+            'hashtags': hashtagList,
+            'socials': socialList
         }
 
         contactList = []
         contactList.append(profileJoe)
         contactList.append(profileJane)
-        contactList.append(profileTesto)
+
 
         deletedList = []
         deletedList.append("Nitko1")
