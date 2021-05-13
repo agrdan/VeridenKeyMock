@@ -306,10 +306,7 @@ class VeridenKey:
             'to_user': profileJoe
         }
         listResp.append(one)
-        resp = {
-            listResp
-        }
-        return jsonify(resp)
+        return jsonify(listResp)
 
     @staticmethod
     @vk.route("/contact/request/", methods=['POST'])
