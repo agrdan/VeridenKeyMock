@@ -299,9 +299,14 @@ class VeridenKey:
             'request_sent_id': 'qwert3s6d8a7s6d'
         }
         resp = {
-            'id': 'a09s8d9as8d7asd9f8a7sdf8',
-            'from_user': profileJane,
-            'to_user': profileJoe
+            [
+                {
+                    'id': 'a09s8d9as8d7asd9f8a7sdf8',
+                    'from_user': profileJane,
+                    'to_user': profileJoe
+                }
+            ]
+
         }
         return jsonify(resp)
 
