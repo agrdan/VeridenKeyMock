@@ -428,6 +428,6 @@ class VeridenKey:
             'count': 1,
             'next': 'next',
             'previous': 'previous',
-            'result': profileList
+            'results': profileList
         }
         return jsonify(resp)
