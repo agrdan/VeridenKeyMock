@@ -402,7 +402,7 @@ class VeridenKey:
 
     @staticmethod
     @vk.route("/suggestions/", methods=['GET'])
-    def contactReqAction():
+    def getSuggestion():
         limit = request.args.get('limit')
         profileList = []
         profile = {
