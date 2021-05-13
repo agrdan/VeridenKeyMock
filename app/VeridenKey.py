@@ -298,15 +298,16 @@ class VeridenKey:
             'request_received_id': 'qwert3a6sd876asd',
             'request_sent_id': 'qwert3s6d8a7s6d'
         }
-        resp = {
-            [
-                {
-                    'id': 'a09s8d9as8d7asd9f8a7sdf8',
-                    'from_user': profileJane,
-                    'to_user': profileJoe
-                }
-            ]
 
+        listResp = []
+        one = {
+            'id': 'a09s8d9as8d7asd9f8a7sdf8',
+            'from_user': profileJane,
+            'to_user': profileJoe
+        }
+        listResp.append(one)
+        resp = {
+            listResp
         }
         return jsonify(resp)
 
