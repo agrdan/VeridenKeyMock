@@ -590,6 +590,14 @@ class VeridenKey:
         return jsonify(resp)
 
     @staticmethod
+    @vk.route("/contact/hashtags/", methods=['POST'])
+    def contactHashtags():
+        resp = {
+            'response': 'mock response'
+        }
+        return jsonify(resp)
+
+    @staticmethod
     @vk.route("/suggestions/", methods=['GET'])
     def getSuggestion():
         limit = request.args.get('limit')
