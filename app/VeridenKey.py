@@ -336,7 +336,7 @@ class VeridenKey:
 
 
     @staticmethod
-    @vk.route("/contact/handle/<string:handle>/", methods=['GET'])
+    @vk.route("/contact/handle/<string:handle>", methods=['GET'])
     def handleRefresh(handle):
         emailList = []
         emailList.append("test@test.hr")
@@ -483,7 +483,6 @@ class VeridenKey:
         contactList = []
         contactList.append(profileJoe)
         contactList.append(profileJane)
-
 
         deletedList = []
         deletedList.append("Nitko1")
