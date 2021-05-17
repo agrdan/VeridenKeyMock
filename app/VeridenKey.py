@@ -270,8 +270,89 @@ class VeridenKey:
         return jsonify(resp)
 
     @staticmethod
+    @vk.route("/contact/request/", methods=['DELETE'])
+    def deleteContact():
+        resp = {
+            'response': 'Not implemented'
+        }
+        return jsonify(resp)
+
+    @staticmethod
+    @vk.route("/blocked-users/", methods=['POST', 'DELETE'])
+    def blockedUsers():
+        resp = {
+            'response': 'Not implemented'
+        }
+        return jsonify(resp)
+
+    @staticmethod
+    @vk.route("/blocked-users/", methods=['GET'])
+    def blockedUsersGET():
+
+        blockedUserList = []
+
+        user1 = {
+            'id': 'asd267asd24a3sd2a43sd2',
+            'name': 'John Johnson',
+            'handle': 'handle-1a31234sdfg1927319asdf67asd5f',
+            'occupation': 'PM',
+            'country': 'Croatia',
+            'qr_code': 'qr_code B46',
+            'avatar_small_url': 'https://davismarketingcompany.com/wp-content/uploads/2016/01/avatar_placeholder_small.png',
+            'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
+            'address': 'Radnicka cesta 20, Zagreb',
+            'last_updated': str(dt.now()),
+            'request_sent': True,
+            'request_received': True,
+            'request_received_id': 'a8a8a6sd876asd',
+            'request_sent_id': '678s6d9a8s6d'
+        }
+
+        user2 = {
+            'id': 'asd268asd24a3sd2a43sd2',
+            'name': 'Mark Markson',
+            'handle': 'handle-1a31235sdfg1927319asdf67asd5f',
+            'occupation': 'PM',
+            'country': 'Croatia',
+            'qr_code': 'qr_code B46',
+            'avatar_small_url': 'https://davismarketingcompany.com/wp-content/uploads/2016/01/avatar_placeholder_small.png',
+            'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
+            'address': 'Radnicka cesta 20, Zagreb',
+            'last_updated': str(dt.now()),
+            'request_sent': True,
+            'request_received': True,
+            'request_received_id': 'a8a8a6sd898asd',
+            'request_sent_id': '678s6d4a3es6d'
+        }
+
+        blockedUserList.append(user1)
+        blockedUserList.append(user2)
+
+        resp = {
+
+            'response': 'Not implemented'
+        }
+        return jsonify(blockedUserList)
+
+    @staticmethod
     @vk.route("/contact/request/", methods=['GET'])
     def getContactReq():
+        app_owner = {
+            'id': 'asd267asd24a3sd2a43sd2',
+            'name': 'App Owner - req',
+            'handle': 'handle-1asfasd31234sdfg1927319asdf67asd5f',
+            'occupation': 'test',
+            'country': 'Croatia',
+            'qr_code': 'qr_code B46',
+            'avatar_small_url': 'https://davismarketingcompany.com/wp-content/uploads/2016/01/avatar_placeholder_small.png',
+            'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
+            'address': 'Radnicka cesta 40, Zagreb',
+            'last_updated': str(dt.now()),
+            'request_sent': True,
+            'request_received': True,
+            'request_received_id': 'asd8a8a6sd876asd',
+            'request_sent_id': '6da78s6d9a8s6d'
+        }
 
         profileJane = {
             'id': 'asd234asd24a3sd2a43sd2',
@@ -311,9 +392,15 @@ class VeridenKey:
         one = {
             'id': 'a09s8d9as8d7asd9f8a7sdf8',
             'from_user': profileJane,
-            'to_user': profileJoe
+            'to_user': app_owner
+        }
+        two = {
+            'id': 'a08s8d9as8d7asd9f8a7sdf8',
+            'from_user': profileJoe,
+            'to_user': app_owner
         }
         listResp.append(one)
+        listResp.append(two)
         return jsonify(listResp)
 
     @staticmethod
@@ -508,9 +595,9 @@ class VeridenKey:
         limit = request.args.get('limit')
         profileList = []
         profile = {
-            'id': 'asd234asd24a3sd2a43sd2',
-            'name': 'Jane Doe',
-            'handle': 'handle-12381927319asdf67asd5f',
+            'id': 'asd234asd24a3sd2a43sd18q9347',
+            'name': 'Pero Peric',
+            'handle': 'handle-12sdf81sdfg27319asdf67asd5f',
             'occupation': 'unknown',
             'country': 'Croatia',
             'qr_code': 'qr_code B46',
@@ -518,8 +605,8 @@ class VeridenKey:
             'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
             'address': 'Radnicka cesta 47, Zagreb',
             'last_updated': str(dt.now()),
-            'request_sent': True,
-            'request_received': True,
+            'request_sent': False,
+            'request_received': False,
             'request_received_id': 'asd87a6sd876asd',
             'request_sent_id': '6da78s6d8a7s6d'
         }
