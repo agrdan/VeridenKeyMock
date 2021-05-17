@@ -77,7 +77,7 @@ class VeridenKey:
             'linkedin_connected': True,
             'linkedin_gentoo_friends': 5,
             'messaging_phones': phoneList,
-            'name': 'some name',
+            'name': 'App Owner',
             'occupation': 'developer',
             'phones':  phoneList,
             'qr_code': 'qr code b64?',
@@ -89,9 +89,17 @@ class VeridenKey:
     @staticmethod
     @vk.route("/me/update/", methods=['PATCH'])
     def mePatch():
+        email1 = {
+            'email': 'test@test.hr',
+            'permission': 1
+        }
+        email2 = {
+            'email': 'user@decode.agency',
+            'permission': 1
+        }
         emailList = []
-        emailList.append("test@test.hr")
-        emailList.append("user@decode.agency")
+        emailList.append(email1)
+        emailList.append(email2)
         phoneList = []
         phone = {
             'permission': 1,
@@ -133,7 +141,7 @@ class VeridenKey:
             'linkedin_connected': True,
             'linkedin_gentoo_friends': 5,
             'messaging_phones': phoneList,
-            'name': 'some name',
+            'name': 'App Owner',
             'occupation': 'developer',
             'phones': phoneList,
             'qr_code': 'qr code b64?',
@@ -326,9 +334,67 @@ class VeridenKey:
         }
         return jsonify(resp)
 
+
+    @staticmethod
+    @vk.route("/contact/handle/<string:handle>/", methods=['GET'])
+    def handleRefresh(handle):
+        emailList = []
+        emailList.append("test@test.hr")
+        emailList.append("test@decode.agency")
+        phoneList = []
+        phoneList.append("+385991234567")
+        phoneList.append("+385981234567")
+        social1 = {
+            'app_id': 'asd123asd123',
+            'handle': 'handle1',
+            'permissions': [
+                1,
+                2,
+                3
+            ]
+        }
+
+        social2 = {
+            'app_id': 'asd321as321',
+            'handle': 'handle2',
+            'permissions': [
+                1,
+                2
+            ]
+        }
+        socialList = []
+        socialList.append(social1)
+        socialList.append(social2)
+        hashtagList = []
+        hashtagList.append("#krivi")
+        hashtagList.append("#model")
+        hashtagList.append("#:P")
+
+        resp = {
+            'contact_id': 'asd234asd24a3sd2a43sd2',
+            'user_id': 'asd908as09d8as0f7d8g7',
+            'name': 'Jane Doe',
+            'handle': handle,
+            'occupation': 'unknown',
+            'country': 'Croatia',
+            'address': 'Radnicka cesta 47, Zagreb',
+            'qr_code': 'qr_code B46',
+            'avatar_small_url': 'https://davismarketingcompany.com/wp-content/uploads/2016/01/avatar_placeholder_small.png',
+            'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
+            'permission_sent': 1,
+            'emails': emailList,
+            'phones': phoneList,
+            'messaging_phones': phoneList,
+            'hashtags': hashtagList,
+            'socials': socialList
+        }
+
+        return jsonify(resp)
+
+
     @staticmethod
     @vk.route("/contact/", methods=['POST', 'GET'])
-    def hashtag():
+    def contactRequest():
         email1 = {
             'email': 'test@test.hr',
             'permission': 1
@@ -338,15 +404,19 @@ class VeridenKey:
             'permission': 1
         }
         emailList = []
-        emailList.append(email1)
-        emailList.append(email2)
+        # emailList.append(email1)
+        # emailList.append(email2)
+        emailList.append("test@test.hr")
+        emailList.append("test@decode.agency")
         phoneList = []
         phone = {
             'permission': 1,
             'phone': '+385991234567'
         }
         phoneList.append(phone)
-
+        messagingPhones = []
+        messagingPhones.append("+38599123456")
+        messagingPhones.append("+38598123456")
         social1 = {
             'app_id': 'asd123asd123',
             'handle': 'handle1',
@@ -385,8 +455,8 @@ class VeridenKey:
             'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
             'permission_sent': 1,
             'emails': emailList,
-            'phones': phoneList,
-            'messaging_phones': phoneList,
+            'phones': messagingPhones,
+            'messaging_phones': messagingPhones,
             'hashtags': hashtagList,
             'socials': socialList
         }
@@ -404,8 +474,8 @@ class VeridenKey:
             'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
             'permission_sent': 1,
             'emails': emailList,
-            'phones': phoneList,
-            'messaging_phones': phoneList,
+            'phones': messagingPhones,
+            'messaging_phones': messagingPhones,
             'hashtags': hashtagList,
             'socials': socialList
         }
