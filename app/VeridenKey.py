@@ -354,7 +354,7 @@ class VeridenKey:
 
         profileJane = {
             'id': 'asd234asd24a3sd2a43sd2',
-            'fullname': 'Jane Doe',
+            'name': 'Jane Doe',
             'handle': 'handle-12381927319asdf67asd5f',
             'occupation': 'unknown',
             'country': 'Croatia',
@@ -371,7 +371,7 @@ class VeridenKey:
 
         profileJoe = {
             'id': 'erty234asd24a3sd2a43sd2',
-            'fullname': 'Joe Doe',
+            'name': 'Joe Doe',
             'handle': 'handle-qwerty1927319asdf67asd5f',
             'occupation': 'dev',
             'country': 'Croatia',
