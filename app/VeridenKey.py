@@ -354,7 +354,7 @@ class VeridenKey:
 
         profileJane = {
             'id': 'asd234asd24a3sd2a43sd2',
-            'name': 'Jane Doe',
+            'fullname': 'Jane Doe',
             'handle': 'handle-12381927319asdf67asd5f',
             'occupation': 'unknown',
             'country': 'Croatia',
@@ -371,7 +371,7 @@ class VeridenKey:
 
         profileJoe = {
             'id': 'erty234asd24a3sd2a43sd2',
-            'name': 'Joe Doe',
+            'fullname': 'Joe Doe',
             'handle': 'handle-qwerty1927319asdf67asd5f',
             'occupation': 'dev',
             'country': 'Croatia',
@@ -390,16 +390,88 @@ class VeridenKey:
         one = {
             'id': 'a09s8d9as8d7asd9f8a7sdf8',
             'from_user': profileJane,
-            'to_user': app_owner
+            'permission': 1
         }
         two = {
             'id': 'a08s8d9as8d7asd9f8a7sdf8',
             'from_user': profileJoe,
-            'to_user': app_owner
+            'permission': 2
         }
         listResp.append(one)
         listResp.append(two)
         return jsonify(listResp)
+
+    """
+    @staticmethod
+        @vk.route("/contact/request/", methods=['GET'])
+        def getContactReq():
+            app_owner = {
+                'id': 'asd267asd24a3sd2a43sd2',
+                'name': 'App Owner - req',
+                'handle': 'handle-1asfasd31234sdfg1927319asdf67asd5f',
+                'occupation': 'test',
+                'country': 'Croatia',
+                'qr_code': 'qr_code B46',
+                'avatar_small_url': 'https://davismarketingcompany.com/wp-content/uploads/2016/01/avatar_placeholder_small.png',
+                'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
+                'address': 'Radnicka cesta 40, Zagreb',
+                'last_updated': str(dt.now()),
+                'request_sent': True,
+                'request_received': True,
+                'request_received_id': 'asd8a8a6sd876asd',
+                'request_sent_id': '6da78s6d9a8s6d'
+            }
+    
+            profileJane = {
+                'id': 'asd234asd24a3sd2a43sd2',
+                'name': 'Jane Doe',
+                'handle': 'handle-12381927319asdf67asd5f',
+                'occupation': 'unknown',
+                'country': 'Croatia',
+                'qr_code': 'qr_code B46',
+                'avatar_small_url': 'https://davismarketingcompany.com/wp-content/uploads/2016/01/avatar_placeholder_small.png',
+                'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
+                'address': 'Radnicka cesta 47, Zagreb',
+                'last_updated': str(dt.now()),
+                'request_sent': True,
+                'request_received': True,
+                'request_received_id': 'asd87a6sd876asd',
+                'request_sent_id': '6da78s6d8a7s6d'
+            }
+    
+            profileJoe = {
+                'id': 'erty234asd24a3sd2a43sd2',
+                'name': 'Joe Doe',
+                'handle': 'handle-qwerty1927319asdf67asd5f',
+                'occupation': 'dev',
+                'country': 'Croatia',
+                'qr_code': 'qr_code B46',
+                'avatar_small_url': 'https://davismarketingcompany.com/wp-content/uploads/2016/01/avatar_placeholder_small.png',
+                'avatar_url': 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png',
+                'address': 'Radnicka cesta 20, Zagreb',
+                'last_updated': str(dt.now()),
+                'request_sent': True,
+                'request_received': True,
+                'request_received_id': 'qwert3a6sd876asd',
+                'request_sent_id': 'qwert3s6d8a7s6d'
+            }
+    
+            listResp = []
+            one = {
+                'id': 'a09s8d9as8d7asd9f8a7sdf8',
+                'from_user': profileJane,
+                'to_user': app_owner
+            }
+            two = {
+                'id': 'a08s8d9as8d7asd9f8a7sdf8',
+                'from_user': profileJoe,
+                'to_user': app_owner
+            }
+            listResp.append(one)
+            listResp.append(two)
+            return jsonify(listResp)
+    
+    """
 
     @staticmethod
     @vk.route("/contact/request/", methods=['POST'])
