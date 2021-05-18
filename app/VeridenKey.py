@@ -3,7 +3,6 @@ from datetime import datetime as dt
 vk = Blueprint('veriden_key', __name__)
 
 
-
 class VeridenKey:
 
     @staticmethod
@@ -44,21 +43,20 @@ class VeridenKey:
         phoneList.append(phone)
 
         social1 = {
-            'app_id': 'asd123asd123',
-            'handle': 'handle1',
+            'app_id': 'linkedin',
+            'handle': 'app.owner@linkedin',
             'permissions': [
                 1,
-                2,
-                3
+                0
             ]
         }
 
         social2 = {
-            'app_id': 'asd321as321',
-            'handle': 'handle2',
+            'app_id': 'playstation',
+            'handle': 'app.owner@playstation',
             'permissions': [
                 1,
-                2
+                0
             ]
         }
         socialList = []
