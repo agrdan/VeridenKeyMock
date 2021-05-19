@@ -44,19 +44,19 @@ class VeridenKey:
 
         social1 = {
             'app_id': 'linkedin',
-            'handle': 'app.owner@linkedin',
+            'handle': 'appOwner',
             'permissions': [
                 1,
-                0
+                2
             ]
         }
 
         social2 = {
-            'app_id': 'playstation',
-            'handle': 'app.owner@playstation',
+            'app_id': 'instagram',
+            'handle': 'appOwner',
             'permissions': [
-                1,
-                0
+                0,
+                1
             ]
         }
         socialList = []
@@ -115,7 +115,7 @@ class VeridenKey:
         }
 
         social2 = {
-            'app_id': 'asd321as321',
+            'app_id': 'instagram',
             'handle': 'handle2',
             'permissions': [
                 0,
@@ -170,7 +170,7 @@ class VeridenKey:
         }
 
         social2 = {
-            'app_id': 'asd321as321',
+            'app_id': 'instagram',
             'handle': 'handle2',
             'permissions': [
                 0,
@@ -237,6 +237,7 @@ class VeridenKey:
     @vk.route("/user/search/", methods=['GET'])
     def search():
         search = request.args.get('search_term')
+        print(search)
         profileList = []
         profile = {
             'id': 'asd234asd24a3sd2a43sd2',
@@ -261,7 +262,7 @@ class VeridenKey:
             'count': 1,
             'next': 'next',
             'previous': 'previous',
-            'result': profileList
+            'results': profileList
         }
         return jsonify(resp)
 
@@ -330,7 +331,7 @@ class VeridenKey:
         }
         return jsonify(blockedUserList)
 
-    
+
     @staticmethod
     @vk.route("/contact/request/", methods=['GET'])
     def getContactReq():
@@ -469,8 +470,8 @@ class VeridenKey:
         listResp.append(one)
         listResp.append(two)
         return jsonify(listResp)
-
     """
+    
 
     @staticmethod
     @vk.route("/contact/request/", methods=['POST'])
