@@ -203,6 +203,14 @@ class VeridenKey:
         return jsonify(resp)
 
     @staticmethod
+    @vk.route("/contact/permission/", methods=['POST'])
+    def contactPermission():
+        resp = {
+            'response': 'placeholder'
+        }
+        return jsonify(resp)
+
+    @staticmethod
     @vk.route("/me/", methods=['POST'])
     def mePost():
         resp = {
@@ -332,6 +340,7 @@ class VeridenKey:
         return jsonify(blockedUserList)
 
 
+    # iOS
     @staticmethod
     @vk.route("/contact/request/", methods=['GET'])
     def getContactReq():
@@ -402,6 +411,8 @@ class VeridenKey:
         return jsonify(listResp)
 
     """
+
+    # android
     @staticmethod
     @vk.route("/contact/request/", methods=['GET'])
     def getContactReq():
@@ -470,8 +481,8 @@ class VeridenKey:
         listResp.append(one)
         listResp.append(two)
         return jsonify(listResp)
+
     """
-    
 
     @staticmethod
     @vk.route("/contact/request/", methods=['POST'])
