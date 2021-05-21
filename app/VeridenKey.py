@@ -25,6 +25,20 @@ class VeridenKey:
         return jsonify(resp)
 
     @staticmethod
+    @vk.route("/signout/", methods=['POST'])
+    def signout():
+        headers = request.headers
+        auth, token = headers['Authorization'].split(" ")
+        print(auth)
+        print(token)
+        print("_____________")
+        print(headers)
+        resp = {
+            'access_token': 'fasd8f97as9df87asd9f8a7sdf8!'
+        }
+        return jsonify(resp)
+
+    @staticmethod
     @vk.route("/me/", methods=['GET'])
     def me():
         email1 = {
@@ -343,7 +357,7 @@ class VeridenKey:
         return jsonify(blockedUserList)
 
     @staticmethod
-    @vk.route("/login", methods=['POST'])
+    @vk.route("/login/", methods=['POST'])
     def login():
         email = ""
         password = ""
@@ -745,4 +759,4 @@ class VeridenKey:
             "email": model['email'],
             "password": model['password']
         }
-        return str(jwt.encode(m, app.config["salt"]), 'utf-8')
+        return str(jwt.encode(m, app.config["salt"]))#, 'utf-8')
