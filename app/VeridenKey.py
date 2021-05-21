@@ -745,4 +745,4 @@ class VeridenKey:
             "email": model['email'],
             "password": model['password']
         }
-        return str(jwt.encode(m, app.config["salt"])).encode('utf-8').decode('utf-8')
+        return str(jwt.encode(m, app.config["salt"]), 'utf-8')
