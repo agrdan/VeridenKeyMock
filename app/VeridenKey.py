@@ -345,12 +345,12 @@ class VeridenKey:
     @staticmethod
     @vk.route("/login", methods=['POST'])
     def login():
-        username = ""
+        email = ""
         password = ""
         login = request.get_json()
         try:
             print(login)
-            username = login['username']
+            email = login['email']
             password = login['password']
 
         except Exception as e:
@@ -359,7 +359,7 @@ class VeridenKey:
             }
             return jsonify(response), 406
 
-        if (username == "decode" and password == "agency!"):
+        if (email == "decode@decode.agency" and password == "agency!"):
             resp = {
                 'token': VeridenKey.generateJWTToken(login)
             }
@@ -742,7 +742,7 @@ class VeridenKey:
     @staticmethod
     def generateJWTToken(model):
         m = {
-            "username": model['username'],
+            "email": model['email'],
             "password": model['password']
         }
-        return str(jwt.encode(m, app.config["salt"]))
+        return str(jwt.encode(m, app.config["salt"])).encode('utf-8').decode('utf-8')
