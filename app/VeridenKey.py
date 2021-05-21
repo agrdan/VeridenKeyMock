@@ -1,5 +1,8 @@
 from flask import request, jsonify, Blueprint, render_template, flash, redirect, url_for, session, json, Response, send_from_directory, send_file, make_response
 from datetime import datetime as dt
+import jwt
+from main import app
+
 vk = Blueprint('veriden_key', __name__)
 
 
@@ -339,8 +342,34 @@ class VeridenKey:
         }
         return jsonify(blockedUserList)
 
+    @staticmethod
+    @vk.route("/login", methods=['POST'])
+    def login():
+        username = ""
+        password = ""
+        login = request.get_json()
+        try:
+            print(login)
+            username = login['username']
+            password = login['password']
 
-    # iOS
+        except Exception as e:
+            response = {
+                'error': str(e)
+            }
+            return jsonify(response), 406
+
+        if (username == "decode" and password == "agency!"):
+            resp = {
+                'token': VeridenKey.generateJWTToken(login)
+            }
+            return jsonify(resp), 200
+        else:
+            resp = {
+                'error': 'Invalid credentials'
+            }
+            return jsonify(resp), 401
+
     @staticmethod
     @vk.route("/contact/request/", methods=['GET'])
     def getContactReq():
@@ -399,12 +428,14 @@ class VeridenKey:
         one = {
             'id': 'a09s8d9as8d7asd9f8a7sdf8',
             'from_user': profileJane,
-            'permission': 1
+            'permission': 1,
+            'to_user': app_owner
         }
         two = {
             'id': 'a08s8d9as8d7asd9f8a7sdf8',
             'from_user': profileJoe,
-            'permission': 2
+            'permission': 2,
+            'to_user': app_owner
         }
         listResp.append(one)
         listResp.append(two)
@@ -481,8 +512,8 @@ class VeridenKey:
         listResp.append(one)
         listResp.append(two)
         return jsonify(listResp)
+        """
 
-    """
 
     @staticmethod
     @vk.route("/contact/request/", methods=['POST'])
@@ -707,3 +738,11 @@ class VeridenKey:
             'results': profileList
         }
         return jsonify(resp)
+
+    @staticmethod
+    def generateJWTToken(model):
+        m = {
+            "username": model['username'],
+            "password": model['password']
+        }
+        return str(jwt.encode(m, app.config["salt"]))

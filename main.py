@@ -1,7 +1,9 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from config.Config import Config
 
 app = Flask(__name__)
+app.config["salt"] = Config().salt
 #app.config.from_object(DevConfig)
 #db = SQLAlchemy(app)
 
