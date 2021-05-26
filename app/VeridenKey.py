@@ -11,6 +11,8 @@ class VeridenKey:
     @staticmethod
     @vk.route("/social/signin/", methods=['POST'])
     def signin():
+        body = request.get_json()
+        print(body)
         resp = {
             'access_token': 'fasd8f97as9df87asd9f8a7sdf8!'
         }
@@ -87,7 +89,7 @@ class VeridenKey:
             'emails': emailList,
             'facebook_connected': True,
             'facebook_gentoo_friends': 3,
-            'handle': 'some handle (username?)',
+            'handle': "app.Owner",
             'id': 'asd6a7s8d6as8d76as8d7',
             'linkedin_connected': True,
             'linkedin_gentoo_friends': 5,
@@ -97,7 +99,8 @@ class VeridenKey:
             'phones':  phoneList,
             'qr_code': 'qr code b64?',
             'socials': socialList,
-            'notification_key': 'asd8asdas78dg6sd9h6dfgh9d6'
+            'notification_key': 'VXU7PTE6AF',
+            'last_updated': str(dt.now())
         }
         return jsonify(resp)
 
@@ -160,7 +163,8 @@ class VeridenKey:
             'phones': phoneList,
             'qr_code': 'qr code b64?',
             'socials': socialList,
-            'notification_key': 'asd8asdas78dg6sd9h6dfgh9d6'
+            'notification_key': 'VXU7PTE6AF',
+            'last_updated': str(dt.now())
         }
         return jsonify(resp)
 
@@ -215,7 +219,7 @@ class VeridenKey:
             'phones': phoneList,
             'qr_code': 'qr code b64?',
             'socials': socialList,
-            'notification_key': 'asd8asdas78dg6sd9h6dfgh9d6'
+            'notification_key': 'VXU7PTE6AF'
         }
         return jsonify(resp)
 
