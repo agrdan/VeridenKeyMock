@@ -16,7 +16,7 @@ class VeridenKey:
         resp = {
             'access_token': 'fasd8f97as9df87asd9f8a7sdf8!'
         }
-        return jsonify(resp)
+        return jsonify(resp), 404
 
     @staticmethod
     @vk.route("/social/signup/", methods=['POST'])
@@ -25,6 +25,28 @@ class VeridenKey:
             'access_token': 'fasd8f97as9df87asd9f8a7sdf8!'
         }
         return jsonify(resp)
+
+    @staticmethod
+    @vk.route("/auth/signup/", methods=['POST'])
+    def nativeSignup():
+        resp = {
+            'access_token': 'fasd8f97as9df87asd9f8a7sdf8!'
+        }
+        return jsonify(resp)
+
+    @staticmethod
+    @vk.route("/auth/forgot-password/", methods=['POST'])
+    def resetPassword():
+        timestamp: int = int(dt.now().timestamp())
+        print(timestamp)
+        res = request.get_json();
+        print(res)
+        resp = {}
+        if timestamp % 2 == 0:
+
+            return resp, 200
+        else:
+            return resp, 404
 
     @staticmethod
     @vk.route("/signout/", methods=['POST'])
@@ -107,6 +129,9 @@ class VeridenKey:
     @staticmethod
     @vk.route("/me/update/", methods=['PATCH'])
     def mePatch():
+
+        file = request.files['image']
+        print(str(file))
         email1 = {
             'email': 'test@test.hr',
             'permission': 1
